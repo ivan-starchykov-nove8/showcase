@@ -7,7 +7,7 @@ import 'package:showcase/core/screen_factory/screen_factory.dart';
 ///
 /// Provides navigation helpers and route configuration, enabling
 /// consistent, centralized control over app routing.
-class ApplicationNavigation {
+final class ApplicationNavigation {
   const ApplicationNavigation._();
 
   /// Accessor for the navigator key used in non-contextual navigation.
@@ -35,10 +35,30 @@ class ApplicationNavigation {
         name: ApplicationRoutes.featureA.name,
         builder: (BuildContext context, GoRouterState state) => ScreenFactory.renderFeatureA(),
       ),
+      ShellRoute(
+        builder: (BuildContext context, GoRouterState state, Widget child) {
+          return ScreenFactory.renderFeatureB(child: child);
+        },
+        routes: [
+          GoRoute(
+            path: ApplicationRoutes.featureC.path,
+            name: ApplicationRoutes.featureC.name,
+            builder: (BuildContext context, GoRouterState state) => ScreenFactory.renderFeatureC(),
+          ),
+          GoRoute(
+            path: ApplicationRoutes.featureD.path,
+            name: ApplicationRoutes.featureD.name,
+            builder: (BuildContext context, GoRouterState state) => ScreenFactory.renderFeatureD(),
+          ),
+        ],
+      ),
       GoRoute(
-        path: ApplicationRoutes.featureB.path,
-        name: ApplicationRoutes.featureB.name,
-        builder: (BuildContext context, GoRouterState state) => ScreenFactory.renderFeatureB(),
+        path: ApplicationRoutes.featureE.path,
+        name: ApplicationRoutes.featureE.name,
+        pageBuilder: (BuildContext context, GoRouterState state) {
+          final int params = state.extra as int? ?? 0;
+          return ScreenFactory.renderFeatureE(params: params);
+        },
       ),
     ],
   );

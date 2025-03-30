@@ -4,7 +4,8 @@ enum ApplicationRoutes {
   featureA('/featureA'),
   featureB('/featureB'),
   featureC('/featureC'),
-  featureD('/featureD');
+  featureD('/featureD'),
+  featureE('/featureE');
 
   /// Constructor for [ApplicationRoutes] with the associated path.
   const ApplicationRoutes(this.path);

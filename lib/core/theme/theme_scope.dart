@@ -26,16 +26,6 @@ class ThemeScope extends InheritedWidget {
       colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.light,
         seedColor: Palette.defaultTextColor,
-        error: Palette.errorBackground,
-        onError: Palette.errorForeground,
-        surface: Palette.errorForeground,
-        outline: Palette.defaultBorderColor,
-      ),
-      pageTransitionsTheme: const PageTransitionsTheme(
-        builders: {
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-        },
       ),
     );
   }
@@ -45,15 +35,7 @@ class ThemeScope extends InheritedWidget {
       colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.dark,
         seedColor: Palette.defaultTextColor,
-        error: Palette.errorBackground,
-        onError: Palette.errorForeground,
-        surface: Palette.errorForeground,
-        outline: Palette.defaultBorderColor,
       ),
-      pageTransitionsTheme: const PageTransitionsTheme(builders: {
-        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      }),
     );
   }
 
